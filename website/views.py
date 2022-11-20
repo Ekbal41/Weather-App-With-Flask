@@ -13,7 +13,7 @@ def home():
     return render_template("home.html")
 
 
-@views.route('/predict_weather', methods=['POST'])
+@views.route('/predict_weather', methods=['POST', 'GET'])
 def predict_weather():
     if request.method == 'POST':
         q = request.form['location']
@@ -76,4 +76,4 @@ def predict_weather():
                                    feelslike_f=feelslike_f, vis_km=vis_km,
                                    vis_miles=vis_miles, uv=uv, gust_mph=gust_mph, gust_kph=gust_kph)
         except:
-            return render_template('home.html', error='Please enter a correct Place name...')
+            return render_template('home.html', error='Please enter a correct City name...')
